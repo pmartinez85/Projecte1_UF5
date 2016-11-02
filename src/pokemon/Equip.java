@@ -11,6 +11,12 @@ package pokemon;
  * @author pedro
  */
 public class Equip {
+    
+    public Equip(String nom, String membres) {
+        
+        
+
+    }
       
     
 }
