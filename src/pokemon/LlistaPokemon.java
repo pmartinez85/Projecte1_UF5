@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pokemon;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+
+import java.util.*;
 
 /**
  *
@@ -20,7 +13,7 @@ public class LlistaPokemon {
     public static void main(String[] args) {
         
 		// LinkedList
-		List pokemon = new LinkedList();
+		Collection pokemon = new LinkedList<>();
  
 		// Afegim i creem un iterator
 		pokemon.add("Bulbasur");
@@ -45,7 +38,7 @@ public class LlistaPokemon {
 		System.out.println("--LinkedList--");
  
 		// ArrayList
-		List pkm = new ArrayList();
+		Collection pkm = new ArrayList<>();
  
 		// Afegim nodes y creem un Iterator
 		pkm.add("Bulbasour");
