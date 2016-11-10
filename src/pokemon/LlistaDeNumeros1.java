@@ -26,29 +26,29 @@ public class LlistaDeNumeros1 {
 
     public LlistaDeNumeros1 () {
 
-        list = new ArrayList<>(SIZE);
+        list = new ArrayList<Integer>(SIZE);
 
         for (int i = 0; i < SIZE; i++) {
 
-            list.add(i);
+            list.add(new Integer(i));
 
         }
 
     }
 
     public void writeList(String fileName) {
-        
-        PrintWriter out = null;
 
         try {
 
-            out = new PrintWriter(new FileWriter(fileName));
+           PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
             for (int i = 0; i < SIZE; i++) {
 
                 out.println("Value at: " + i + " = " + list.get(i));
 
             }
+            out.close();
+            
         } catch (IOException e) {
             System.err.println("S'ha capturat una IOException: " + e.getMessage());
         } finally {
@@ -64,27 +64,31 @@ public class LlistaDeNumeros1 {
 
     public void readList(String fileName) {
 
-        String line;
+        String line = null;
         RandomAccessFile raf;
         try {
             raf = new RandomAccessFile(fileName, "r");
             while ((line = raf.readLine()) != null) {
 
-                Integer i = Integer.parseInt(line);
+                Integer i = new Integer(Integer.parseInt(line));
 
                 System.out.println(i);
                 list.add(i);
             } 
+            raf.close();
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(LlistaDeNumeros1.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("No hi ha fitxer " + ex);
         }catch (IOException ex) {
             Logger.getLogger(LlistaDeNumeros1.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("capturem l'error " + ex);
         }finally {
             if (out != null) {
-                System.out.println("Tanquem PrintWriter");
+                System.out.println("Tanquem RandomAccessFile");
                 out.close();
             } else {
-                System.out.println("PrintWriter no està obert");
+                System.out.println("RandomAccessFile no està obert");
             }
     }
 
@@ -92,7 +96,15 @@ public class LlistaDeNumeros1 {
    
 public static void main(String[] args) {
     
-    
+    LlistaDeNumeros1 novallista = new LlistaDeNumeros1();
+    System.out.println("primer cas:");
+    novallista.writeList("No existeix la carpeta o fitxer"); //excepció
+    System.out.println("segon cas:");
+    novallista.writeList("nombres.txt"); //creem el fitxer amb la llista
+    System.out.println("tercer cas:");
+    novallista.readList("nombres.txt"); //este sí que va
+    System.out.println("quart cas:");
+    novallista.readList("fitxernoexisteix"); //exepcio
     
 }
     
