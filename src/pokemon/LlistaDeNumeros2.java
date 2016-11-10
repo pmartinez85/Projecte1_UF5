@@ -52,8 +52,7 @@ public class LlistaDeNumeros2 {
             System.err.println("S'ha capturat una IOException: " + e.getMessage());
         } finally {
             if (out != null) {
-                System.out.println("Tanquem PrintWriter");
-                out.close();
+                System.out.println("Tanquem PrintWriter");out.close();
             } else {
                 System.out.println("Printwriter no està obert");
             }
@@ -76,15 +75,14 @@ public class LlistaDeNumeros2 {
             }
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(LlistaDeNumeros1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LlistaDeNumeros2.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("No hi ha fitxer " + ex);
         }catch (IOException ex) {
-            Logger.getLogger(LlistaDeNumeros1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LlistaDeNumeros2.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("capturem l'error " + ex);
         }finally {
             if (out != null) {
                 System.out.println("Tanquem RandomAccessFile");
-                out.close();
             } else {
                 System.out.println("RandomAccessFile no està obert");
             }
@@ -95,9 +93,13 @@ public class LlistaDeNumeros2 {
 public static void main(String[] args) {
     
     LlistaDeNumeros1 novallista = new LlistaDeNumeros1();
-    System.out.println("primer cas:");
-    novallista.readList("fitxer1"); 
+    
+    System.out.println("Primer cas: cridem al fitxer escrit pel writeList()");
+    
+    novallista.readList("read.txt"); 
+    
     System.out.println("segon cas:");
-    novallista.writeList("fitxer2"); 
+    
+    novallista.writeList("write.txt"); 
 }
 }
