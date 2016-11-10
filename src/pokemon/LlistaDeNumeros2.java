@@ -31,7 +31,6 @@ public class LlistaDeNumeros2 {
         for (int i = 11; i < SIZE; i++) {
 
             list.add(new Integer(i));
-
         }
 
     }
@@ -64,12 +63,12 @@ public class LlistaDeNumeros2 {
 
     public void readList(String fileName) {
 
-        String line = null;
+        String line;
         try {
             try (RandomAccessFile raf = new RandomAccessFile(fileName, "r")){
             while ((line = raf.readLine()) != null) {
 
-                Integer i = new Integer(Integer.parseInt(line));
+                Integer i = Integer.parseInt(line);
 
                 System.out.println(i);
                 list.add(i);

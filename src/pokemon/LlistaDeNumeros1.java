@@ -53,8 +53,7 @@ public class LlistaDeNumeros1 {
             System.err.println("S'ha capturat una IOException: " + e.getMessage());
         } finally {
             if (out != null) {
-                System.out.println("Tanquem PrintWriter");
-                out.close();
+                System.out.println("Tanquem PrintWriter correctament");
             } else {
                 System.out.println("Printwriter no està obert");
             }
@@ -64,13 +63,12 @@ public class LlistaDeNumeros1 {
 
     public void readList(String fileName) {
 
-        String line = null;
-        RandomAccessFile raf;
+        String line;
         try {
-            raf = new RandomAccessFile(fileName, "r");
+           RandomAccessFile raf = new RandomAccessFile(fileName, "r");
             while ((line = raf.readLine()) != null) {
 
-                Integer i = new Integer(Integer.parseInt(line));
+                Integer i = Integer.parseInt(line);
 
                 System.out.println(i);
                 list.add(i);
@@ -86,7 +84,6 @@ public class LlistaDeNumeros1 {
         }finally {
             if (out != null) {
                 System.out.println("Tanquem RandomAccessFile");
-                out.close();
             } else {
                 System.out.println("RandomAccessFile no està obert");
             }
@@ -97,13 +94,17 @@ public class LlistaDeNumeros1 {
 public static void main(String[] args) {
     
     LlistaDeNumeros1 novallista = new LlistaDeNumeros1();
-    System.out.println("primer cas:");
-    novallista.writeList("No existeix la carpeta o fitxer"); //excepció
-    System.out.println("segon cas:");
-    novallista.writeList("nombres.txt"); //creem el fitxer amb la llista
-    System.out.println("tercer cas:");
-    novallista.readList("nombres.txt"); //este sí que va
-    System.out.println("quart cas:");
+    
+    System.out.println("Primer cas, es crea un fitxer asdadasd.txt:");
+    novallista.writeList("asdasdqsad.txt"); //excepció
+    
+    System.out.println("Segon cas, creem fitxer write.txt amb la llista:");
+    novallista.writeList("write.txt"); //creem el fitxer amb la llista
+    
+    System.out.println("Tercer cas:");
+    novallista.readList("read.txt"); //este sí que va
+    
+    System.out.println("Quart cas:");
     novallista.readList("fitxernoexisteix"); //exepcio
     
 }
