@@ -29,7 +29,7 @@ public class LlansaExcepcio {
    }
 
    void metode4() {
-      fitxer=new PrintWriter("c:/sortida.txt");
+      //fitxer=new PrintWriter("c:/sortida.txt"); //descomentar per llençar excepció
    }
 
    public static void main(String[] args) {
