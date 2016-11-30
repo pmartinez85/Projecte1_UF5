@@ -1,4 +1,4 @@
-package pokemon;
+package Exercicis_classe;
 
 import java.util.*;
 
