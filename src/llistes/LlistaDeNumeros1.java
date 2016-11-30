@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Exercicis_classe;
+package llistes;
 
 /**
  *
@@ -18,19 +18,20 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LlistaDeNumeros2 {
+public class LlistaDeNumeros1 {
 
     private final List<Integer> list;
 
     private static final int SIZE = 10; 
 
-    public LlistaDeNumeros2 () {
+    public LlistaDeNumeros1 () {
 
         list = new ArrayList<Integer>(SIZE);
 
-        for (int i = 11; i < SIZE; i++) {
+        for (int i = 0; i < SIZE; i++) {
 
             list.add(new Integer(i));
+
         }
 
     }
@@ -39,20 +40,20 @@ public class LlistaDeNumeros2 {
 
         try {
 
-           try (PrintWriter out = new PrintWriter(new FileWriter(fileName))){
+           PrintWriter out = new PrintWriter(new FileWriter(fileName));
 
             for (int i = 0; i < SIZE; i++) {
 
                 out.println("Value at: " + i + " = " + list.get(i));
 
             }
-           }
+            out.close();
             
         } catch (IOException e) {
             System.err.println("S'ha capturat una IOException: " + e.getMessage());
         } finally {
             if (out != null) {
-                System.out.println("Tanquem PrintWriter");out.close();
+                System.out.println("Tanquem PrintWriter correctament");
             } else {
                 System.out.println("Printwriter no està obert");
             }
@@ -64,7 +65,7 @@ public class LlistaDeNumeros2 {
 
         String line;
         try {
-            try (RandomAccessFile raf = new RandomAccessFile(fileName, "r")){
+           RandomAccessFile raf = new RandomAccessFile(fileName, "r");
             while ((line = raf.readLine()) != null) {
 
                 Integer i = Integer.parseInt(line);
@@ -72,13 +73,13 @@ public class LlistaDeNumeros2 {
                 System.out.println(i);
                 list.add(i);
             } 
-            }
+            raf.close();
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(LlistaDeNumeros2.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LlistaDeNumeros1.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("No hi ha fitxer " + ex);
         }catch (IOException ex) {
-            Logger.getLogger(LlistaDeNumeros2.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LlistaDeNumeros1.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("capturem l'error " + ex);
         }finally {
             if (out != null) {
@@ -94,12 +95,18 @@ public static void main(String[] args) {
     
     LlistaDeNumeros1 novallista = new LlistaDeNumeros1();
     
-    System.out.println("Primer cas: cridem al fitxer escrit pel writeList()");
+    System.out.println("Primer cas, es crea un fitxer asdadasd.txt:");
+    novallista.writeList("asdasdqsad.txt"); //excepció
     
-    novallista.readList("read.txt"); 
+    System.out.println("Segon cas, creem fitxer write.txt amb la llista:");
+    novallista.writeList("write.txt"); //creem el fitxer amb la llista
     
-    System.out.println("segon cas:");
+    System.out.println("Tercer cas:");
+    novallista.readList("read.txt"); //este sí que va
     
-    novallista.writeList("write.txt"); 
+    System.out.println("Quart cas:");
+    novallista.readList("fitxernoexisteix"); //exepcio
+    
 }
+    
 }

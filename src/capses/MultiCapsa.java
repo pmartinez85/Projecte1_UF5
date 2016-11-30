@@ -1,4 +1,4 @@
-package Exercicis_classe;
+package capses;
 
 import java.util.*;
 

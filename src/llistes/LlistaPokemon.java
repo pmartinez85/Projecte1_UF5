@@ -1,4 +1,4 @@
-package Exercicis_classe;
+package llistes;
 
 
 import java.util.*;
