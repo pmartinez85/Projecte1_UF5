@@ -1,4 +1,4 @@
-package palindroms;
+package strings;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;

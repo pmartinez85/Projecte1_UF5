@@ -1,4 +1,4 @@
-package comparar;
+package excepcions;
 
 import java.util.*;
 

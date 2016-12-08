@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package inicials;
+package generiques;
 
 import java.util.Arrays;
 import java.util.Scanner;

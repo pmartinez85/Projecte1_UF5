@@ -1,4 +1,4 @@
-package capses;
+package coleccions;
 
 import java.util.*;
 

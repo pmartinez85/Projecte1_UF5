@@ -1,4 +1,4 @@
-package questionari;
+package strings;
 
 /**
  *

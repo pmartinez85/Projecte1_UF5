@@ -1,4 +1,4 @@
-package trobaremail;
+package generiques;
 import java.util.Scanner;
 import java.util.regex.*;
 // @author pedro

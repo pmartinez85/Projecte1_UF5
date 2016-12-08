@@ -1,4 +1,4 @@
-package llistes;
+package coleccions;
 
 
 import java.util.*;

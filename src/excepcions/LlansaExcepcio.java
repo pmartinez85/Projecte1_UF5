@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Exercicis_classe;
+package excepcions;
 
 /**
  *
@@ -29,7 +29,9 @@ public class LlansaExcepcio {
    }
 
    void metode4() {
-      //fitxer=new PrintWriter("c:/sortida.txt"); //descomentar per llençar excepció
+       //descomentar per llençar excepció
+       
+      //fitxer=new PrintWriter("c:/sortida.txt"); 
    }
 
    public static void main(String[] args) {
